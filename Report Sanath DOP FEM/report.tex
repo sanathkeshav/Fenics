@@ -1,0 +1,67 @@
+% Project Report for ME-F377 Project Course
+\documentclass[11pt]{report}
+
+\topmargin=0.0in
+\oddsidemargin=0.0in
+\evensidemargin=0in
+\textwidth=6.5in
+\marginparwidth=0.5in
+\headheight=0pt
+\headsep=0pt
+\textheight=9.0in
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{hyperref}
+\usepackage{geometry,color,graphicx}
+\usepackage{subcaption}
+\usepackage{listings}
+\usepackage{ff++listings}
+\usepackage{pgf}
+\usepackage{epstopdf}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{example}{Example}[chapter]
+\newtheorem{result}{Result}[chapter]
+
+\begin{document}
+	\begin{titlepage}
+		\begin{center}
+			{\Large A Report}\\[1cm]
+			{\Large On}\\[1cm]
+			{\LARGE \textbf{Numerical Solutions to Partial Differential Equations using FEniCS}}\\[1cm]
+			{\Large Prepared in partial fulfillment}\\[1cm]
+			{\Large of}\\[1cm]
+			{\Large \textbf{Design Project}}\\[0.5cm]
+			{\Large \textbf{ME F377}}\\[1cm]
+
+			{\Large By}\\[1cm]
+			{\Large Sanath Keshav}\\[0.1cm]
+			{\Large 2013A4PS359G}\\[0.3cm]
+
+			\begin{figure}[h]
+				\centering
+				\includegraphics[scale=0.7]{bits_logo.png}
+			\end{figure}
+
+			\textsc{BIRLA INSTITUTE OF TECHNOLOGY AND SCIENCE, PILANI}
+		\end{center}
+	\end{titlepage}
+
+	\chapter*{Acknowledgements}
+I would like to express my deepest appreciation to all those who helped me to complete this report. A special gratitude I give to my mentor Dr. P Dhanumjaya , for giving me this opportunity to work on this topic and also for his guidance and unwavering support during the whole semester. I would also like to particularly thank my classmate K Balaje for his constant support and motivation the whole time.
+	\tableofcontents
+
+	\chapter{Introduction}
+	\input{chapters/introduction}
+	
+	\chapter{1D Elliptic Problems}
+	\input{chapters/1d}
+	
+	\chapter{2D Elliptic problems in FEniCS}
+	\input{chapters/ff}
+	
+	\chapter{Time Dependent Problems in FEniCS}
+	\input{chapters/parabolic}
+
+\end{document}

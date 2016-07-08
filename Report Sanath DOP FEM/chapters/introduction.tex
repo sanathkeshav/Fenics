@@ -1,0 +1,52 @@
+% $DOP/Report/chapters/introduction.tex
+\hspace{5mm}In this report we introduce FEM for some elliptic model problems and study the basic properties of the method. We first consider a simple one-dimensional problem and then some two=dimensional generalisations. Consider the following \emph{model problems} - 
+\begin{eqnarray}\nonumber
+	&\text{1D: }&\qquad -u''(x) = f(x), \quad 0<x<1, \quad u(0) = u(1) = 0\\\nonumber
+	&\text{2D: }&\qquad-\Delta u(x,y) = f(x,y), \quad (x,y) \in \Omega, \quad u(x,y)|_{\partial \Omega} = 0  
+\end{eqnarray}
+where $\Delta$ denotes the \emph{Laplacian} operator, $\Omega$ is the domain in the $(x,y)$ plane with the boundary $\partial \Omega$.
+
+\section{Preliminaries}
+
+We now introduce some notation that will be used below. We define
+\begin{equation}
+D^\alpha v = \frac{\partial ^{|\alpha|} v}{\partial x_1^{\alpha_1} \partial x_2^{\alpha_2} \dots \partial x_n^{\alpha_n}}
+\end{equation}
+where here $\alpha = (\alpha_1,\alpha_2), \alpha_i $ is a non-negative natural number and $|\alpha| = \alpha_1 + \alpha_2$. As an example, a partial derivative of order 2 can there be written as  $D^\alpha v $ with $\alpha=(2,0), \alpha = (1,1)$ or $\alpha =(0,2), $ which are the$\alpha$ with $|\alpha| = 2$.
+
+We now define for $k = 1,2, .... ,$
+\begin{equation}
+H^k(\Omega) = \Big\{ u(x) \ \Big| \ D^\alpha u \in L^2(\Omega), \ |\alpha|\le m   \Big\}
+\end{equation} 
+
+\subsection{The Hilbert spaces}
+When giving the variational forms of the boundary value problems for partial differential equations, it is from the emathematical point of view natural and very useful to work with function spaces V that are slightly larger than the spaces of continuous functions with piecewise continuous derivatives. It is also useful to endow the spaces V with various scalar products with the scalar product related to the boundary value problem. More precisely, V will be a Hilbert space.
+
+We now introduce some Hilbet spaces that are natural to use for variational formulations of the boundary value problems we will consider. Let us start with the one-dimensional case. If $I = (a,b)$ is an interval, we define the space of "square integrable functions" on I :
+\begin{equation}
+L^2(I) := \bigg\{ v:  \int_{I} v^2(x) \ dx < \infty\bigg\}
+\end{equation}
+with the norm:
+\begin{equation}
+\lVert v \rVert_{L^2} := \bigg( \int_{I} v^2 \ dx \bigg)^{1/2}.
+\end{equation}
+
+The space $H^1(I)$consists of the functions v defined on I which together with their first derivatives are square integrable, ie, belong to $L_2 (I)$
+\begin{equation}
+H^1(I) = \Big\{ v \ \Big| \ \int_{I} v^2 \ dx < \infty, \ \int_{I} (v')^2 \ dx < \infty \Big\}
+\end{equation}
+\begin{equation}
+H^1(\Omega) = \Big\{ v(x,y) \ \Big| \ v \in L^2(\Omega), \ \frac{\partial v}{\partial x} \in L^2(\Omega), \ \frac{\partial v}{\partial y} \in L^2(\Omega) \Big\}
+\end{equation}
+We equip this space with the scalar product 
+\begin{equation}
+(v,w)_{H^(I)} = \int_{I} (vw + v'w')dx
+\end{equation}
+\begin{equation}
+\lVert v \rVert_{H^1} := \bigg( \int_{I} (v^2 + v'^2) \ dx \bigg)^{1/2}.
+\end{equation}
+In case of boundary value problems of the form  $ -u'' = f$ on $ I = (a,b)$ with boundary conditions $u(a) = u(b) = 0$, we shall use the space
+\begin{equation}
+H^1 _0(I) = \Big\{ v \in H^1(I): v(a)=v(b)=0\}
+\end{equation}
+with the same scalar product and norm as for $H^1(I)$.

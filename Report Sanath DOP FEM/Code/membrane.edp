@@ -1,0 +1,28 @@
+/* Program to solve a poisson problem
+	-\Laplacian u = f in \Omega
+	u = z in \Gamma1
+	(\Grad u).n = 0 in \Gamma2
+*/
+
+bool debug = true; //A debug variable to toggle debug on/off
+
+real theta = 4.*pi/3.; //To define a part of the boundary
+real a = 2., b = 1.; //Major and minor axes
+func z = x; //function z
+
+border Gamma1(t=0,theta){x=a*cos(t); y=b*sin(t);}; //Generates \Gamma1
+border Gamma2(t=theta,2*pi){x=a*cos(t); y=b*sin(t);}; //Generates \Gamma2
+
+mesh Th = buildmesh(Gamma1(100)+Gamma2(50)); //Meshes the domain - Boundary1 : 100 parts and Boundary2 : 50
+
+fespace Vh(Th,P2); //Finite Element Space - P2 (Quadratic Elements)
+
+Vh phi,w; //Define phi and w from Vh
+
+func f = 1; //Function f = 1
+
+solve Poisson(phi,w,solver=LU) = int2d(Th)(dx(phi)*dx(w)+dy(phi)*dy(w))	 //Input Weak form of the problem + the boundary conditions	  
+									- int2d(Th)(f*w) + on(Gamma1,phi=z); //solve command - solve the problem 
+																		
+plot(Th,wait=debug,ps="Membrane_mesh.eps"); //plot the mesh (wait for keypress)
+plot(phi,wait=debug,ps="Membrane_sol.eps",value=debug); //plot the mesh (wait for keypress)
